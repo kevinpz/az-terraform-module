@@ -1,6 +1,6 @@
 # Create a NIC
 resource "azurerm_network_interface" "nic" {
-  name                = "nic-l-${var.project_name}"
+  name                = "nic-linux"
   location            = var.location
   resource_group_name = var.rg_name
 
@@ -13,7 +13,7 @@ resource "azurerm_network_interface" "nic" {
 
 # Create a VM
 resource "azurerm_linux_virtual_machine" "vm" {
-  name                = "vm-linux-${var.project_name}"
+  name                = "vm-linux"
   resource_group_name = var.rg_name
   location            = var.location
   size                = "Standard_D2ds_v4"
