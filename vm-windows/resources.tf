@@ -21,7 +21,6 @@ resource "azurerm_windows_virtual_machine" "vm" {
   network_interface_ids = [
     azurerm_network_interface.nic.id,
   ]
-  disable_password_authentication = false
   admin_password = var.vm_password
 
   os_disk {
