@@ -1,6 +1,6 @@
 # Create a NIC
 resource "azurerm_network_interface" "nic" {
-  name                = "nic-l-${var.project_name}"
+  name                = "nic-w-${var.project_name}"
   location            = var.location
   resource_group_name = var.rg_name
 
@@ -12,7 +12,7 @@ resource "azurerm_network_interface" "nic" {
 }
 
 # Create a VM
-resource "azurerm_linux_virtual_machine" "vm" {
+resource "azurerm_windows_virtual_machine" "vm" {
   name                = "vm-linux-${var.project_name}"
   resource_group_name = var.rg_name
   location            = var.location
@@ -30,9 +30,9 @@ resource "azurerm_linux_virtual_machine" "vm" {
   }
 
   source_image_reference {
-    publisher = "Canonical"
-    offer     = "0001-com-ubuntu-server-focal"
-    sku       = "20_04-lts-gen2"
+    publisher = "MicrosoftWindowsServer"
+    offer     = "WindowsServer"
+    sku       = "2022-datacenter-azure-edition"
     version   = "latest"
   }
 }
